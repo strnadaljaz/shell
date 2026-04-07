@@ -1,0 +1,30 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "main.o",
+      "main.c"
+    ],
+    "directory": "/home/aljaz/Desktop/FERI/1.letnik/2.semester/UOS/projektna_naloga",
+    "file": "/home/aljaz/Desktop/FERI/1.letnik/2.semester/UOS/projektna_naloga/main.c",
+    "output": "/home/aljaz/Desktop/FERI/1.letnik/2.semester/UOS/projektna_naloga/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "src/List.o",
+      "src/List.c"
+    ],
+    "directory": "/home/aljaz/Desktop/FERI/1.letnik/2.semester/UOS/projektna_naloga",
+    "file": "/home/aljaz/Desktop/FERI/1.letnik/2.semester/UOS/projektna_naloga/src/List.c",
+    "output": "/home/aljaz/Desktop/FERI/1.letnik/2.semester/UOS/projektna_naloga/src/List.o"
+  }
+]
