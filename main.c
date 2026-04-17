@@ -82,7 +82,7 @@ int main(void) {
 
         // Ukaz list
         else if (!strcmp(argv[0], "ls")) {
-            List(argc, argv, cwd);
+            List(argc, argv);
         }
 
         // Ukaz help
