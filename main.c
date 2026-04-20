@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include "List.h"
 #include "ChangeDirectory.h"
+#include "PrintWorkingDirectory.h"
+#include "Echo.h"
 #define MAX_ARGS 64
 
 /* TODO:
@@ -83,6 +85,14 @@ int main(void) {
         // Ukaz list
         else if (!strcmp(argv[0], "ls")) {
             List(argc, argv);
+        }
+
+        else if (!strcmp(argv[0], "pwd")) {
+            PrintWorkingDirectory(argc, argv, cwd);
+        }
+
+        else if (!strcmp(argv[0], "echo")) {
+            Echo(argc, argv); 
         }
 
         // Ukaz help

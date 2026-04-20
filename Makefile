@@ -10,7 +10,6 @@ $(TARGET): $(OBJS)
 	rm -f terminal
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 	rm -f *.o src/*.o
-	./terminal
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

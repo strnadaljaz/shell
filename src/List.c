@@ -19,8 +19,10 @@ void print_permissions(mode_t mode) {
 
 // ---------- -F ----------
 void print_suffix(mode_t mode) {
-    if (S_ISDIR(mode)) printf("/");
-    else if (mode & S_IXUSR) printf("*");
+    if (S_ISDIR(mode))
+        printf("/");
+    else if (mode & S_IXUSR)
+        printf("*");
 }
 
 // ---------- -l ----------
@@ -40,7 +42,7 @@ void print_long(char *base, char *name, int FFlag) {
     printf(" %ld", st.st_nlink);
 
     struct passwd *pw = getpwuid(st.st_uid);
-    struct group  *gr = getgrgid(st.st_gid);
+    struct group *gr = getgrgid(st.st_gid);
 
     printf(" %s", pw ? pw->pw_name : "?");
     printf(" %s", gr ? gr->gr_name : "?");
@@ -56,7 +58,8 @@ void print_long(char *base, char *name, int FFlag) {
 
     printf(" %s", name);
 
-    if (FFlag) print_suffix(st.st_mode);
+    if (FFlag)
+        print_suffix(st.st_mode);
 
     printf("\n");
 }
@@ -76,7 +79,8 @@ void list_dir(char *path, int lFlag, int aFlag, int dFlag, int FFlag) {
             print_long(".", path, FFlag);
         } else {
             printf("%s", path);
-            if (FFlag) print_suffix(st.st_mode);
+            if (FFlag)
+                print_suffix(st.st_mode);
             printf("\n");
         }
         return;
@@ -93,7 +97,8 @@ void list_dir(char *path, int lFlag, int aFlag, int dFlag, int FFlag) {
     while ((entry = readdir(dir)) != NULL) {
 
         // -a
-        if (!aFlag && entry->d_name[0] == '.') continue;
+        if (!aFlag && entry->d_name[0] == '.')
+            continue;
 
         if (lFlag) {
             print_long(path, entry->d_name, FFlag);
@@ -106,13 +111,15 @@ void list_dir(char *path, int lFlag, int aFlag, int dFlag, int FFlag) {
 
             printf("%s", entry->d_name);
 
-            if (FFlag) print_suffix(st2.st_mode);
+            if (FFlag)
+                print_suffix(st2.st_mode);
 
             printf("\t");
         }
     }
 
-    if (!lFlag) printf("\n");
+    if (!lFlag)
+        printf("\n");
 
     closedir(dir);
 }
@@ -125,10 +132,14 @@ void List(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) {
         if (argv[i][0] == '-') {
             for (int j = 1; argv[i][j]; j++) {
-                if (argv[i][j] == 'l') lFlag = 1;
-                else if (argv[i][j] == 'a') aFlag = 1;
-                else if (argv[i][j] == 'd') dFlag = 1;
-                else if (argv[i][j] == 'F') FFlag = 1;
+                if (argv[i][j] == 'l')
+                    lFlag = 1;
+                else if (argv[i][j] == 'a')
+                    aFlag = 1;
+                else if (argv[i][j] == 'd')
+                    dFlag = 1;
+                else if (argv[i][j] == 'F')
+                    FFlag = 1;
             }
         } else {
             path = argv[i];
