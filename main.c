@@ -3,6 +3,9 @@
 #include "Echo.h"
 #include "List.h"
 #include "PrintWorkingDirectory.h"
+#include "MakeDirectory.h"
+#include "MakeFile.h"
+#include "Sleep.h"
 #include <dirent.h>
 #include <stdarg.h>
 #include <stdbool.h>
@@ -99,6 +102,18 @@ int main(void) {
 
         else if (!strcmp(argv[0], "cat")) {
             Concatenate(argc, argv);
+        }
+
+        else if (!strcmp(argv[0], "mkdir")) {
+            MakeDirectory(argc, argv);
+        }
+
+        else if (!strcmp(argv[0], "mkf")) {
+            MakeFile(argc, argv);
+        }
+
+        else if (!strcmp(argv[0], "sleep")) {
+            Sleep(argc, argv);
         }
 
         // Ukaz help
