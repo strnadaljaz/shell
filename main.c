@@ -1,3 +1,8 @@
+#include "ChangeDirectory.h"
+#include "Concatenate.h"
+#include "Echo.h"
+#include "List.h"
+#include "PrintWorkingDirectory.h"
 #include <dirent.h>
 #include <stdarg.h>
 #include <stdbool.h>
@@ -6,10 +11,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include "List.h"
-#include "ChangeDirectory.h"
-#include "PrintWorkingDirectory.h"
-#include "Echo.h"
 #define MAX_ARGS 64
 
 /* TODO:
@@ -78,8 +79,9 @@ int main(void) {
             break;
 
         // ukaz change directory
-        else if ((!strcmp(argv[0], "cd") || ((numberOfDots(argv[0]) % 2 == 0) && (numberOfDots(argv[0]) != 0)))) {
-            ChangeDirectory(argc, argv, getenv("HOME"), cwd);  
+        else if ((!strcmp(argv[0], "cd") || ((numberOfDots(argv[0]) % 2 == 0) &&
+                                             (numberOfDots(argv[0]) != 0)))) {
+            ChangeDirectory(argc, argv, getenv("HOME"), cwd);
         }
 
         // Ukaz list
@@ -92,16 +94,22 @@ int main(void) {
         }
 
         else if (!strcmp(argv[0], "echo")) {
-            Echo(argc, argv); 
+            Echo(argc, argv);
+        }
+
+        else if (!strcmp(argv[0], "cat")) {
+            Concatenate(argc, argv);
         }
 
         // Ukaz help
         else if (!strcmp(argv[0], ".help")) {
-            
-        }        
+
+        }
 
         else {
-            printf("Command %s not found. Run .help for all available commands\n", argv[0]);
+            printf(
+                "Command %s not found. Run .help for all available commands\n",
+                argv[0]);
         }
     }
 
